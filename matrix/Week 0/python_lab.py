@@ -27,7 +27,7 @@ divisible_by_3 = (673 + 909) / 3 == 0
 ## 4: (Task 4) Conditional Expression
 x = -9
 y = 1/2
-expression_val = (2**(y+1/2) if x+10<0 else 2**(y-1/2)) == 1.0
+expression_val = (2**(y+1/2) if x+10<0 else 2**(y-1/2)) == 1.0 # FALSE
 
 
 
@@ -71,7 +71,7 @@ list_of_numbers = [20, 10, 15, 75]
 # Replace ... with a one-line expression that evaluates to the average of list_of_numbers.
 # Your expression should refer to the variable list_of_numbers, and should work
 # for a list of any length greater than zero.
-list_average = sum([20, 10, 15, 75])/len([20, 10, 15, 75])
+list_average = sum(list_of_numbers)/len(list_of_number)
  
 
 
@@ -111,7 +111,7 @@ first_of_tuples_list =  first_of_tuples_list = [(x, y, z) for x in S for y in S 
 
 
 
-## 16: (Task 16) List and set differ
+## 16: (Task 16) List and set differ (?)
 L1 = [1, 1] # <-- want len(L1) != len(list(set(L1)))
 L2 = [3, 2, 1] # <-- same len(L2) == len(list(set(L2))) but L2 != list(set(L2))
 
