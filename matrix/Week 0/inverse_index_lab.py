@@ -2,18 +2,18 @@
 coursera = 1
 # Please fill out this stencil and submit using the provided submission script.
 
-
-
-
+import math
 
 ## 1: (Task 1) Movie Review
 ## Task 1
+from random import randomint
 def movie_review(name):
     """
     Input: the name of a movie
     Output: a string (one of the review options), selected at random using randint
     """
-    return ...
+    list_options = ["See it!", "A gem!", "Ideological claptrap!"]
+    return list_options[randint(0, 2)]
 
 
 
@@ -32,7 +32,14 @@ def makeInverseIndex(strlist):
     >>> makeInverseIndex(['hello world','hello','hello cat','hellolot of cats']) == {'hello': {0, 1, 2}, 'cat': {2}, 'of': {3}, 'world': {0}, 'cats': {3}, 'hellolot': {3}}
     True
     """
-    pass
+    words_idx = [(word,idx) for (idx, sen) in enumerate(strlist) for word in sen.split()]
+    result = {}
+    for (word, idx) in words_idx:
+        if word in result:
+            result[word].add(idx)
+        else:
+            result[word] = {idx,}
+    return result
 
 
 
@@ -49,7 +56,7 @@ def orSearch(inverseIndex, query):
     >>> orSearch(idx, ['Johann', 'Carl'])
     {0, 2, 3, 4, 5}
     """
-    pass
+    return { index for word in query for (w, indecies) in inverseIndex.items() if w == word for index in indecies}
 
 
 
@@ -66,5 +73,6 @@ def andSearch(inverseIndex, query):
     >>> andSearch(idx, ['Johann', 'Bach'])
     {0, 4}
     """
-    pass
+    indecies = [indecies for word in query for (w, indecies) in inverseIndex.items() if w == word]
+    return [_ & __ for _ in indecies for __ in indecies if _ is not __][-1]
 
