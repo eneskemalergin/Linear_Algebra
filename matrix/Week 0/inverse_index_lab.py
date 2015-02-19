@@ -1,12 +1,10 @@
 # version code d345910f07ae
 coursera = 1
 # Please fill out this stencil and submit using the provided submission script.
-
-import math
-
+from random import randint
 ## 1: (Task 1) Movie Review
 ## Task 1
-from random import randomint
+
 def movie_review(name):
     """
     Input: the name of a movie
