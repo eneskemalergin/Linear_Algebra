@@ -27,7 +27,7 @@ divisible_by_3 = (673 + 909) / 3 == 0
 ## 4: (Task 4) Conditional Expression
 x = -9
 y = 1/2
-expression_val = (2**(y+1/2) if x+10<0 else 2**(y-1/2)) == 1.0 # FALSE
+expression_val = 1.0 
 
 
 
@@ -71,7 +71,7 @@ list_of_numbers = [20, 10, 15, 75]
 # Replace ... with a one-line expression that evaluates to the average of list_of_numbers.
 # Your expression should refer to the variable list_of_numbers, and should work
 # for a list of any length greater than zero.
-list_average = sum(list_of_numbers)/len(list_of_number)
+list_average = sum(list_of_numbers)/len(list_of_numbers)
  
 
 
