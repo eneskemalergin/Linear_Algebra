@@ -20,7 +20,7 @@ def myFilter(L, num):
       >>> myFilter([10,15,20,25],10)
       [15, 25]
     '''
-    pass
+    return [x for x in L if 0 != x%num]
 
 
 
@@ -33,7 +33,7 @@ def my_lists(L):
     >>> my_lists([0,3])
     [[], [1, 2, 3]]
     '''
-    pass
+    return [[y+1 for y in range(x)] for x in L]
 
 
 
@@ -56,7 +56,7 @@ def myFunctionComposition(f, g):
       >>> myFunctionComposition(a,b) == {'x':'twentyfour','y':'twentyfive'}
       True
     '''
-    pass
+    return {x:g[f[x]] for x in f if f[x] in g }
 
 
 
@@ -74,8 +74,10 @@ Be sure your procedure works for the empty list.
       >>> mySum([3,5,10])
       18
     '''
-    pass
-
+    current = 0
+    for x in L:
+        current = current + x
+    return current
 
 
 ## 5: (Problem 5) Multiplying numbers in a list
@@ -92,7 +94,10 @@ Be sure your procedure works for the empty list.
       >>> myProduct([-3,2,4])
       -24
     '''
-    pass
+    current = 1
+    for x in L:
+        current = current * x
+    return current
 
 
 
@@ -111,7 +116,13 @@ Hint: The value of the Python expression float('infinity') is infinity.
     >>> myMin([0,3,5,-2,-5])
     -5
     '''
-    pass
+    current = -999999999
+    if len(L) > 0:
+        current = L[0]
+    for x in L:
+        if current > x:
+            current = x
+    return current
 
 
 
@@ -129,7 +140,10 @@ Be sure your procedure works for the empty list.
     >>> myConcat(['what','is','up'])
     'whatisup'
     '''
-    pass
+    current = ""
+    for x in L:
+        current = current + x
+    return current
 
 
 
@@ -147,8 +161,10 @@ Be sure your procedure works for the empty list.
     >>> myUnion([set(),{3,5},{3,5}])
     {3, 5}
     '''
-    pass
-
+    current = set([])
+    for x in L:
+        current = current | x
+    return current
 
 
 ## 9: (Problem 9) Complex Addition Practice
