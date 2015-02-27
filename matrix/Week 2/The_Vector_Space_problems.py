@@ -3,7 +3,9 @@ coursera = 1
 # Please fill out this stencil and submit using the provided submission script.
 
 from vec import Vec
-
+from GF2 import one
+from vec import *
+from itertools import *
 
 
 ## 1: (Problem 3.8.1) Vector Comprehension and Sum
@@ -17,7 +19,12 @@ def vec_select(veclist, k):
     >>> vec_select([v1, v2, v3, v4], 'a') == [Vec(D,{'b': 1}), Vec(D,{'b': 2})]
     True
     '''
-    pass
+    vec_list = list()
+    for vec in veclist:
+        if 0 == getitem(vec,k):
+            vec_list.append(vec)
+    return vec_list    
+
 
 def vec_sum(veclist, D):
     '''
@@ -28,8 +35,12 @@ def vec_sum(veclist, D):
     >>> v4 = Vec(D, {'a': 10, 'b': 10})
     >>> vec_sum([v1, v2, v3, v4], D) == Vec(D, {'b': 13, 'a': 11})
     True
+
     '''
-    pass
+    sum_vec = Vec(D,{})
+    for v in veclist:
+        sum_vec = add(sum_vec, v)
+    return sum_vec    
 
 def vec_select_sum(veclist, k, D):
     '''
@@ -41,7 +52,7 @@ def vec_select_sum(veclist, k, D):
     >>> vec_select_sum([v1, v2, v3, v4], 'a', D) == Vec(D, {'b': 3})
     True
     '''
-    pass
+    return vec_sum(vec_select(veclist,k), D)
 
 
 
@@ -56,7 +67,7 @@ def scale_vecs(vecdict):
     >>> [v in [Vec({1,2,4},{2: 3.0}), Vec({1,2,4},{1: 0.2, 2: 0.4, 4: 1.6})] for v in result]
     [True, True]
     '''
-    pass
+    return [ scalar_mul(v,1/k) for (k,v) in vecdict.items()]
 
 
 
@@ -77,30 +88,34 @@ def GF2_span(D, S):
     >>> S == {Vec({0, 1},{1: one}), Vec({0, 1},{0: one})}
     True
     '''
-    pass
+    A = [0,1]
+    vec_set = list()
+    for l in product(A,repeat=len(L)):
+        vec_set.append(linear_comb(L, l))
+    return vec_set
 
 
 
 ## 4: (Problem 3.8.7) Is it a vector space 1
 # Answer with a boolean, please.
-is_a_vector_space_1 = ...
+is_a_vector_space_1 = False
 
 
 
 ## 5: (Problem 3.8.8) Is it a vector space 2
 # Answer with a boolean, please.
-is_a_vector_space_2 = ...
+is_a_vector_space_2 = True
 
 
 
 ## 6: (Problem 3.8.9) Is it a vector space 3
 # Answer with a boolean, please.
-is_a_vector_space_3 = ...
+is_a_vector_space_3 = False
 
 
 
 ## 7: (Problem 3.8.10) Is it a vector space 4
 # Answer with a boolean, please.
-is_a_vector_space_4a = ...
-is_a_vector_space_4b = ...
+is_a_vector_space_4a = True
+is_a_vector_space_4b = False
 
