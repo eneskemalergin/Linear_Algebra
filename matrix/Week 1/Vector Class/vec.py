@@ -96,7 +96,11 @@ def add(u,v):
     True
     """
     assert u.D == v.D
-    return Vec(u.D, { i:v[i]+u[i] for i in u.f.keys() | v.f.keys() })
+    add_dict = {}
+    for k in u.D:
+        add_dict[k] = getitem(u, k) + getitem(v, k)
+    return Vec(u.D, add_dict)
+
 
 def dot(u,v):
     """
