@@ -2,8 +2,6 @@
 coursera = 1
 # Please fill out this stencil and submit using the provided submission script.
 
-# Copyright 2013 Philip N. Klein
-
 def getitem(v,k):
     """
     Return the value of entry k in v.
@@ -15,7 +13,11 @@ def getitem(v,k):
     >>> v['b']
     0
     """
-    pass
+    assert k in v.D
+    if k in v.f.keys():
+        return v.f[k]
+    else:
+        return 0    
 
 def setitem(v,k,val):
     """
@@ -34,7 +36,8 @@ def setitem(v,k,val):
     >>> v['a']
     0
     """
-    pass
+    assert k in v.D
+    v.f[k] = val
 
 def equal(u,v):
     """
@@ -64,7 +67,10 @@ def equal(u,v):
 
     """
     assert u.D == v.D
-    pass
+    for x in u.D:
+        if getitem(u, x) != getitem(v, x):
+            return False
+    return True    
 
 def add(u,v):
     """
@@ -90,7 +96,7 @@ def add(u,v):
     True
     """
     assert u.D == v.D
-    pass
+    return Vec(u.D, { i:v[i]+u[i] for i in u.f.keys() | v.f.keys() })
 
 def dot(u,v):
     """
@@ -121,7 +127,7 @@ def dot(u,v):
     12
     """
     assert u.D == v.D
-    pass
+    return sum([getitem(v,k)*getitem(u,k) for k in u.D])
 
 def scalar_mul(v, alpha):
     """
@@ -138,7 +144,7 @@ def scalar_mul(v, alpha):
     >>> u == Vec({'x','y','z','w'},{'x':1,'y':2,'z':3,'w':4})
     True
     """
-    pass
+    return Vec(v.D, {i:alpha*getitem(v,i) for i in v.D})
 
 def neg(v):
     """
@@ -153,7 +159,7 @@ def neg(v):
     True
 
     """
-    pass
+    return Vec(v.D, {i:-1*getitem(v,i) for i in v.D})
 
 ###############################################################################################################################
 
