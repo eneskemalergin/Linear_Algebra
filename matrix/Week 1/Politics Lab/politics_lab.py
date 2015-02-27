@@ -2,14 +2,14 @@
 coursera = 1
 # Please fill out this stencil and submit using the provided submission script.
 
+
+
+
+
 # Be sure that the file voting_record_dump109.txt is in the matrix/ directory.
-
-
-
-
-
+voting_data = list(open("voting_record_dump109.txt"))
 ## 1: (Task 2.12.1) Create Voting Dict
-def create_voting_dict(strlist):
+def create_voting_dict():
     """
     Input: a list of strings.  Each string represents the voting record of a senator.
            The string consists of 
