@@ -1,10 +1,3 @@
-# version code 77ed2409f40d+
-coursera = 1
-# Please fill out this stencil and submit using the provided submission script.
-
-# version code 05f5a0d767f0+
-# Please fill out this stencil and submit using the provided submission script.
-
 from mat import Mat
 from vec import Vec
 import math
